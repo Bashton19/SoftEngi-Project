@@ -2,6 +2,7 @@ from newsapi import NewsApiClient
 import pandas as pd
 import requests
 import spotipy
+from spotify.outh2 import spotifyClientCredentials
 
 
 
@@ -19,10 +20,5 @@ def TopHeadlines():
     
 A = TopHeadlines()
 
-print (A)
 
-
-
-track_info = requests.get('https://api.spotify.com/v1/search',params={ 'q': "space", 'type': 'track' })
-
-print (track_info)
+print (A[0])

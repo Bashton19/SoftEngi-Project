@@ -25,12 +25,12 @@ Headlines = TopHeadlines()
 print (Headlines)
 
 
-credentials = oauth2.SpotifyClientCredentials(
-        client_id="c367030cba0547c18102ec491320e635",
-        client_secret="3286485fbcca41f7b324a6602221755e")
+#credentials = oauth2.SpotifyClientCredentials(
+#        client_id="c367030cba0547c18102ec491320e635",
+#        client_secret="3286485fbcca41f7b324a6602221755e")
 
-token = credentials.get_access_token()
-spotify = spotipy.Spotify(auth=token)
+#token = credentials.get_access_token()
+#spotify = spotipy.Spotify(auth=token)
 
 
 #spotify = spotipy.Spotify()

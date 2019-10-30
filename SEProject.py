@@ -2,7 +2,7 @@ from newsapi import NewsApiClient
 import pandas as pd
 import requests
 import spotipy
-from spotify.outh2 import spotifyClientCredentials
+
 
 
 
@@ -18,7 +18,9 @@ def TopHeadlines():
     data = TopHeadlines()
     print (data)
     
-A = TopHeadlines()
+Headlines = TopHeadlines()
 
 
-print (A[0])
+print (Headlines)
+
+

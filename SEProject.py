@@ -1,8 +1,8 @@
-from newsapi import NewsApiClient
+from newsapi.newsapi_client import NewsApiClient
 import pandas as pd
 import requests
 import spotipy
-import spotipy.outh2 as oauth2
+#import spotipy.outh2 as oauth2
 import sys
 
 

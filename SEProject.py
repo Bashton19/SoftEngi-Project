@@ -1,11 +1,21 @@
-from newsapi.newsapi_client import NewsApiClient
+from newsapi import NewsApiClient
 import requests
 import spotipy
 import spotipy.oauth2 as oauth2
 import random
 import nltk
 from nltk.corpus import words
+import tkinter
 
+m=tkinter.Tk()
+m.title("Track Recommendation Application")
+
+top_frame= tkinter.Frame(m).pack()
+bottom_frame = tkinter.Frame(m).pack(side="bottom")
+
+tkinter.Label(m, text = "This application generates track recommendations from Spotify, based on today's news.", fg="white", bg="red").pack(fill="x")
+
+btn1 = tkinter.Button(top_frame, text = "Generate Recommendations", fg="green").pack()
 
 ## Retrieve top headlines and append to list.
 def TopHeadlines():
@@ -36,8 +46,12 @@ for i in data:
 
 ## Choose random word from list
 Random_News_Word = random.choice(newdata)
-print (Random_News_Word)
 
+print("")
+print("Headlines: ", Headlines)
+print("")
+print ("Key Word: ", Random_News_Word)
+print("")
 
 ## Spotify Authentication
 credentials = oauth2.SpotifyClientCredentials(
@@ -47,11 +61,12 @@ credentials = oauth2.SpotifyClientCredentials(
 token = credentials.get_access_token()
 sp = spotipy.Spotify(auth=token)
 
-
-
 ## Search spotify for keyword extracted from headlines
 ##returns 20 tracks that are based on the 'Random_News_Word'
 results = sp.search(q=Random_News_Word, limit=20)
 for i, t in enumerate(results['tracks']['items']):
-    print (' ', i, t['name'])
+    print (' ', i, t['name'], ' - ', t['artists'] [0] ['name'])
+    print(' ', i, t['album']['images'][0]['url'])
+    print("")
 
+m.mainloop()
